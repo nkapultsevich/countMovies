@@ -19,12 +19,26 @@ const film = {
     hey: 1
 };
 
-const   a = prompt("Че смотрел?",""),
-        b = prompt("Ну и как тебе", ""),
-        c = prompt("Че смотрел?",""),
-        d = prompt("Ну и как тебе", "");
+for (let i = 0; i < 2; i++) {
+    const   a = prompt("Че смотрел?",""),
+            b = prompt("Ну и как тебе", "");
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+    if (a != null && b !== null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log("done"); 
+    } else {
+        console.log("error");
+        i--;
+    }
+
+}
 
 console.log(personalMovieDB);
+
+if (personalMovieDB.count < 10 ) {
+    console.log("Просмотрено мало фильмов")
+} else if (personalMovieDB.count < 30 ) {
+    console.log("Вы классический зритель")
+} else {
+    console.log("Вы киноман")
+}
